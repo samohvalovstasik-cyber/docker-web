@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Docker Compose: управление несколькими контейнерами через один YAML-файл.">
+  <title>Docker Compose — DockerWeb</title>
+  <script type="module" src="./assets/js/main.js"></script>
+</head>
+<body>
+
+  <header class="bg-dark text-white sticky top-0 z-50 shadow-lg">
+    <div class="container-x flex justify-between items-center py-3">
+      <a href="index.html" class="flex items-center gap-2">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#0db7ed" aria-hidden="true">
+          <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.887a.185.185 0 00.185.185zm-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185zm0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.93 0h2.119a.186.186 0 00.185-.186V6.29a.186.186 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.977 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.122a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.93 2.715h2.118a.186.186 0 00.186-.186V9.006a.186.186 0 00-.186-.186H2.192a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm13.82-2.715h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm2.93 0h2.118a.186.186 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zM22.92 11.1a3.484 3.484 0 00-.856-2.033c-.03-.033-.06-.066-.09-.098-.66-.605-1.485-.898-2.353-.898-.58 0-1.11.15-1.552.412-.363.216-.63.517-.83.856-.09.15-.32.15-.41 0-.202-.339-.469-.64-.831-.856a3.047 3.047 0 00-1.552-.412c-.868 0-1.693.293-2.353.898-.03.032-.06.065-.09.098a3.484 3.484 0 00-.856 2.033v.028c-.01.33.03.65.13.953.09.28.24.54.44.76h13.55c.2-.22.35-.48.44-.76.1-.303.14-.623.13-.953v-.028z"/>
+        </svg>
+        <span class="font-bold text-lg">DockerWeb</span>
+      </a>
+
+      <nav class="hidden lg:flex gap-1" aria-label="Основная навигация">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="about.html" class="nav-link">О Docker</a>
+        <a href="installation.html" class="nav-link">Установка</a>
+        <a href="commands.html" class="nav-link">Команды</a>
+        <a href="dockerfile.html" class="nav-link">Dockerfile</a>
+        <a href="compose.html" class="nav-link">Compose</a>
+        <a href="examples.html" class="nav-link">Примеры</a>
+        <a href="blog.html" class="nav-link">Блог</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Контакты</a>
+      </nav>
+
+      <button class="burger lg:hidden" aria-label="Открыть меню">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+
+    <nav id="mobile-nav" class="hidden lg:hidden bg-dark-light px-4 pb-4 flex flex-col gap-1" aria-label="Мобильная навигация">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="about.html" class="nav-link">О Docker</a>
+      <a href="installation.html" class="nav-link">Установка</a>
+      <a href="commands.html" class="nav-link">Команды</a>
+      <a href="dockerfile.html" class="nav-link">Dockerfile</a>
+      <a href="compose.html" class="nav-link">Compose</a>
+      <a href="examples.html" class="nav-link">Примеры</a>
+      <a href="blog.html" class="nav-link">Блог</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="contact.html" class="nav-link">Контакты</a>
+    </nav>
+  </header>
+
+  <div class="container-x py-10 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8">
+
+    <main>
+      <nav aria-label="Хлебные крошки" class="text-sm text-gray-500 mb-4">
+        <a href="index.html" class="link">Главная</a> / <span>Docker Compose</span>
+      </nav>
+
+      <h1 class="section-title">Docker Compose</h1>
+      <p class="mb-4">
+        <strong>Docker Compose</strong> позволяет управлять несколькими контейнерами
+        через один YAML-файл. Вместо десятка команд <code>docker run</code> —
+        одна команда <code>docker compose up</code>.
+      </p>
+
+      <h2 class="text-xl font-bold mt-6 mb-2">Пример docker-compose.yml</h2>
+      <p class="mb-3">Простой стек: веб-приложение + база данных PostgreSQL.</p>
+      <pre class="code-block"><code>services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: myapp
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:</code></pre>
+
+      <h2 class="text-xl font-bold mt-6 mb-2">Основные команды</h2>
+      <table class="table-styled">
+        <thead>
+          <tr>
+            <th scope="col">Команда</th>
+            <th scope="col">Назначение</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><code>docker compose up -d</code></td><td>Запустить все сервисы в фоне</td></tr>
+          <tr><td><code>docker compose up -d --build</code></td><td>Пересобрать образы и запустить</td></tr>
+          <tr><td><code>docker compose ps</code></td><td>Показать статус сервисов</td></tr>
+          <tr><td><code>docker compose logs -f</code></td><td>Логи в реальном времени</td></tr>
+          <tr><td><code>docker compose down</code></td><td>Остановить и удалить контейнеры</td></tr>
+          <tr><td><code>docker compose down -v</code></td><td>Остановить и удалить тома</td></tr>
+          <tr><td><code>docker compose restart</code></td><td>Перезапустить сервисы</td></tr>
+        </tbody>
+      </table>
+
+      <h2 class="text-xl font-bold mt-6 mb-2">Ключевые директивы</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><code>services</code> — список контейнеров, из которых состоит приложение;</li>
+        <li><code>build</code> — путь к Dockerfile для сборки;</li>
+        <li><code>image</code> — готовый образ из Docker Hub;</li>
+        <li><code>ports</code> — проброс портов <em>хост:контейнер</em>;</li>
+        <li><code>volumes</code> — постоянное хранилище данных;</li>
+        <li><code>environment</code> — переменные окружения;</li>
+        <li><code>depends_on</code> — порядок запуска сервисов.</li>
+      </ul>
+
+      <nav class="flex justify-between gap-4 mt-10">
+        <a href="dockerfile.html" class="btn-outline">← Dockerfile</a>
+        <a href="examples.html" class="btn-primary">Примеры →</a>
+      </nav>
+    </main>
+
+    <aside class="space-y-6">
+      <div class="card">
+        <h3 class="font-bold mb-3 text-dark">📌 Содержание страницы</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="link">→ Пример compose</a></li>
+          <li><a href="#" class="link">→ Команды</a></li>
+          <li><a href="#" class="link">→ Директивы</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 class="font-bold mb-3 text-dark">✉️ Подписка на новости</h3>
+        <form class="subscribe-form">
+          <label for="subscribe-email" class="sr-only">Email</label>
+          <input id="subscribe-email" type="email" required placeholder="your@email.com"
+            class="w-full p-2 border rounded mb-2 focus:outline-none focus:border-primary">
+          <button type="submit" class="btn-primary w-full">Подписаться</button>
+        </form>
+      </div>
+
+      <div class="card bg-gradient-to-br from-primary to-accent text-white">
+        <h3 class="font-bold mb-2">💡 Совет дня</h3>
+        <p class="text-sm opacity-95">В новых версиях Docker строка <code>version:</code> в compose-файле не нужна — она устарела и вызывает предупреждение.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="bg-dark text-white mt-12">
+    <div class="container-x py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h4 class="font-bold text-lg mb-3">DockerWeb</h4>
+        <p class="text-sm opacity-80">Учебный проект по теме «Использование контейнеров для разработки Web-приложений».</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Разделы</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="about.html" class="hover:text-primary">О Docker</a></li>
+          <li><a href="commands.html" class="hover:text-primary">Команды</a></li>
+          <li><a href="examples.html" class="hover:text-primary">Примеры</a></li>
+          <li><a href="faq.html" class="hover:text-primary">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Контакты</h4>
+        <ul class="space-y-1 text-sm opacity-90">
+          <li>✉️ info@dockerweb.ru</li>
+          <li>📞 +7 (999) 123-45-67</li>
+          <li>🌐 github.com/dockerweb</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 text-center py-4 text-sm opacity-70">
+      © 2026 DockerWeb. Все права защищены.
+    </div>
+  </footer>
+
+</body>
+</html>

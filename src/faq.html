@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Часто задаваемые вопросы о Docker: образы, контейнеры, тома, безопасность.">
+  <title>FAQ — DockerWeb</title>
+  <script type="module" src="./assets/js/main.js"></script>
+</head>
+<body>
+
+  <header class="bg-dark text-white sticky top-0 z-50 shadow-lg">
+    <div class="container-x flex justify-between items-center py-3">
+      <a href="index.html" class="flex items-center gap-2">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#0db7ed" aria-hidden="true">
+          <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.887a.185.185 0 00.185.185zm-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185zm0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.93 0h2.119a.186.186 0 00.185-.186V6.29a.186.186 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.977 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.122a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.93 2.715h2.118a.186.186 0 00.186-.186V9.006a.186.186 0 00-.186-.186H2.192a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm13.82-2.715h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm2.93 0h2.118a.186.186 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zM22.92 11.1a3.484 3.484 0 00-.856-2.033c-.03-.033-.06-.066-.09-.098-.66-.605-1.485-.898-2.353-.898-.58 0-1.11.15-1.552.412-.363.216-.63.517-.83.856-.09.15-.32.15-.41 0-.202-.339-.469-.64-.831-.856a3.047 3.047 0 00-1.552-.412c-.868 0-1.693.293-2.353.898-.03.032-.06.065-.09.098a3.484 3.484 0 00-.856 2.033v.028c-.01.33.03.65.13.953.09.28.24.54.44.76h13.55c.2-.22.35-.48.44-.76.1-.303.14-.623.13-.953v-.028z"/>
+        </svg>
+        <span class="font-bold text-lg">DockerWeb</span>
+      </a>
+
+      <nav class="hidden lg:flex gap-1" aria-label="Основная навигация">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="about.html" class="nav-link">О Docker</a>
+        <a href="installation.html" class="nav-link">Установка</a>
+        <a href="commands.html" class="nav-link">Команды</a>
+        <a href="dockerfile.html" class="nav-link">Dockerfile</a>
+        <a href="compose.html" class="nav-link">Compose</a>
+        <a href="examples.html" class="nav-link">Примеры</a>
+        <a href="blog.html" class="nav-link">Блог</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Контакты</a>
+      </nav>
+
+      <button class="burger lg:hidden" aria-label="Открыть меню">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+
+    <nav id="mobile-nav" class="hidden lg:hidden bg-dark-light px-4 pb-4 flex flex-col gap-1" aria-label="Мобильная навигация">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="about.html" class="nav-link">О Docker</a>
+      <a href="installation.html" class="nav-link">Установка</a>
+      <a href="commands.html" class="nav-link">Команды</a>
+      <a href="dockerfile.html" class="nav-link">Dockerfile</a>
+      <a href="compose.html" class="nav-link">Compose</a>
+      <a href="examples.html" class="nav-link">Примеры</a>
+      <a href="blog.html" class="nav-link">Блог</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="contact.html" class="nav-link">Контакты</a>
+    </nav>
+  </header>
+
+  <div class="container-x py-10 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8">
+
+    <main>
+      <nav aria-label="Хлебные крошки" class="text-sm text-gray-500 mb-4">
+        <a href="index.html" class="link">Главная</a> / <span>FAQ</span>
+      </nav>
+
+      <h1 class="section-title">Часто задаваемые вопросы</h1>
+      <p class="mb-6">Ответы на самые популярные вопросы, которые возникают у новичков в Docker.</p>
+
+      <div class="space-y-4">
+        <details class="card cursor-pointer">
+          <summary class="font-bold">Чем контейнер отличается от образа?</summary>
+          <p class="mt-3 text-gray-700">Образ — это неизменяемый шаблон, содержащий приложение и его зависимости. Контейнер — запущенный экземпляр образа. Можно запустить сколько угодно контейнеров из одного образа.</p>
+        </details>
+
+        <details class="card cursor-pointer">
+          <summary class="font-bold">Зачем нужен .dockerignore?</summary>
+          <p class="mt-3 text-gray-700">Файл <code>.dockerignore</code> исключает ненужные файлы (например, <code>node_modules</code>, <code>.git</code>, <code>dist</code>) из контекста сборки. Это ускоряет сборку и уменьшает размер образа.</p>
+        </details>
+
+        <details class="card cursor-pointer">
+          <summary class="font-bold">Как работают тома (volumes)?</summary>
+          <p class="mt-3 text-gray-700">Тома — это специальные хранилища, которые живут отдельно от контейнера. Данные в томах сохраняются даже при удалении контейнера. Это критично для баз данных.</p>
+        </details>
+
+        <details class="card cursor-pointer">
+          <summary class="font-bold">Docker бесплатный?</summary>
+          <p class="mt-3 text-gray-700">Docker Engine — полностью open source и бесплатен. Docker Desktop бесплатен для личного использования, образования и малого бизнеса, но требует платной лицензии для крупных компаний.</p>
+        </details>
+
+        <details class="card cursor-pointer">
+          <summary class="font-bold">Можно ли запустить Docker без Docker Desktop?</summary>
+          <p class="mt-3 text-gray-700">Да. На Linux достаточно установить Docker Engine и docker compose plugin. На Windows и macOS Docker Desktop — самый простой вариант, но существуют и альтернативы (Podman, Rancher Desktop).</p>
+        </details>
+
+        <details class="card cursor-pointer">
+          <summary class="font-bold">Чем контейнер отличается от виртуальной машины?</summary>
+          <p class="mt-3 text-gray-700">Контейнеры используют ядро хост-системы и изолируют только процесс. Виртуальные машины эмулируют полноценное железо и запускают своё ядро. Поэтому контейнеры в разы легче и быстрее.</p>
+        </details>
+
+        <details class="card cursor-pointer">
+          <summary class="font-bold">Как передать данные внутрь контейнера?</summary>
+          <p class="mt-3 text-gray-700">Три способа: <code>COPY</code> в Dockerfile (на этапе сборки), монтирование volume (для постоянных данных), переменные окружения <code>-e KEY=value</code> (для конфигурации).</p>
+        </details>
+
+        <details class="card cursor-pointer">
+          <summary class="font-bold">Безопасно ли запускать контейнеры из интернета?</summary>
+          <p class="mt-3 text-gray-700">Не всегда. Используйте официальные образы, регулярно обновляйте их, сканируйте на уязвимости (<code>docker scout</code>), не запускайте от root и ограничивайте capabilities.</p>
+        </details>
+      </div>
+
+      <nav class="flex justify-between gap-4 mt-10">
+        <a href="blog.html" class="btn-outline">← Блог</a>
+        <a href="contact.html" class="btn-primary">Контакты →</a>
+      </nav>
+    </main>
+
+    <aside class="space-y-6">
+      <div class="card">
+        <h3 class="font-bold mb-3 text-dark">📌 Содержание</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="link">→ Образ vs контейнер</a></li>
+          <li><a href="#" class="link">→ .dockerignore</a></li>
+          <li><a href="#" class="link">→ Тома</a></li>
+          <li><a href="#" class="link">→ Лицензия</a></li>
+          <li><a href="#" class="link">→ Docker vs VM</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 class="font-bold mb-3 text-dark">✉️ Подписка на новости</h3>
+        <form class="subscribe-form">
+          <label for="subscribe-email" class="sr-only">Email</label>
+          <input id="subscribe-email" type="email" required placeholder="your@email.com"
+            class="w-full p-2 border rounded mb-2 focus:outline-none focus:border-primary">
+          <button type="submit" class="btn-primary w-full">Подписаться</button>
+        </form>
+      </div>
+
+      <div class="card bg-gradient-to-br from-primary to-accent text-white">
+        <h3 class="font-bold mb-2">💡 Совет дня</h3>
+        <p class="text-sm opacity-95">Не нашли ответ? Откройте официальную документацию <a href="https://docs.docker.com/" target="_blank" rel="noopener" class="underline">docs.docker.com</a> — там всё подробно расписано.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="bg-dark text-white mt-12">
+    <div class="container-x py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h4 class="font-bold text-lg mb-3">DockerWeb</h4>
+        <p class="text-sm opacity-80">Учебный проект по теме «Использование контейнеров для разработки Web-приложений».</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Разделы</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="about.html" class="hover:text-primary">О Docker</a></li>
+          <li><a href="commands.html" class="hover:text-primary">Команды</a></li>
+          <li><a href="examples.html" class="hover:text-primary">Примеры</a></li>
+          <li><a href="faq.html" class="hover:text-primary">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Контакты</h4>
+        <ul class="space-y-1 text-sm opacity-90">
+          <li>✉️ info@dockerweb.ru</li>
+          <li>📞 +7 (999) 123-45-67</li>
+          <li>🌐 github.com/dockerweb</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 text-center py-4 text-sm opacity-70">
+      © 2026 DockerWeb. Все права защищены.
+    </div>
+  </footer>
+
+</body>
+</html>

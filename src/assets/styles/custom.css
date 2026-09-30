@@ -1,0 +1,151 @@
+/* ========== Базовые стили ========== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #1a1a2e;
+  background: #f8f9fa;
+}
+
+/* ========== Бургер-меню ========== */
+.burger-line {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.burger-line + .burger-line {
+  margin-top: 5px;
+}
+
+.burger.is-active .burger-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.burger.is-active .burger-line:nth-child(2) {
+  opacity: 0;
+}
+.burger.is-active .burger-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ========== Код-блоки ========== */
+.code-block {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: 1rem 1.25rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: 'Fira Code', Consolas, Monaco, monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 1rem 0;
+  border-left: 4px solid #5E7CE0;
+}
+
+.code-block code {
+  white-space: pre;
+}
+
+/* ========== Анимация появления ========== */
+.fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== Таблицы ========== */
+.table-styled {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.table-styled th,
+.table-styled td {
+  border: 1px solid #e2e8f0;
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.table-styled thead {
+  background: #5E7CE0;
+  color: #fff;
+}
+
+.table-styled tbody tr:nth-child(even) {
+  background: #f1f5f9;
+}
+
+/* ========== Карточки с иконками ========== */
+.icon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.25s ease;
+}
+
+.icon-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ========== Изображения ========== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ========== Скроллбар ========== */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #5E7CE0; border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: #3D5BC4; }
+
+/* ========== Скрытие для screen readers ========== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ========== Оформление details в FAQ ========== */
+details summary {
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+  padding-right: 2rem;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::after {
+  content: '+';
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #5E7CE0;
+  transition: transform 0.2s ease;
+}
+details[open] summary::after {
+  content: '−';
+}

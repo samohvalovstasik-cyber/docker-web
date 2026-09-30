@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Пошаговая инструкция по установке Docker Desktop на Windows, macOS и Linux.">
+  <title>Установка Docker — DockerWeb</title>
+  <script type="module" src="./assets/js/main.js"></script>
+</head>
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="bg-dark text-white sticky top-0 z-50 shadow-lg">
+    <div class="container-x flex justify-between items-center py-3">
+      <a href="index.html" class="flex items-center gap-2">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="#0db7ed" aria-hidden="true">
+          <path d="M13.983 11.078h2.119a.186.186 0 00.186-.185V9.006a.186.186 0 00-.186-.186h-2.119a.185.185 0 00-.185.186v1.887a.185.185 0 00.185.185zm-2.954-5.43h2.118a.186.186 0 00.186-.186V3.574a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.888c0 .102.083.185.185.185zm0 2.716h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.93 0h2.119a.186.186 0 00.185-.186V6.29a.186.186 0 00-.185-.185H8.1a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.977 0h2.119a.186.186 0 00.185-.186V6.29a.185.185 0 00-.185-.185H5.122a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm-2.93 2.715h2.118a.186.186 0 00.186-.186V9.006a.186.186 0 00-.186-.186H2.192a.185.185 0 00-.185.186v1.887c0 .102.083.185.185.185zm13.82-2.715h2.118a.187.187 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zm2.93 0h2.118a.186.186 0 00.186-.186V6.29a.186.186 0 00-.186-.185h-2.118a.185.185 0 00-.185.185v1.887c0 .102.083.186.185.186zM22.92 11.1a3.484 3.484 0 00-.856-2.033c-.03-.033-.06-.066-.09-.098-.66-.605-1.485-.898-2.353-.898-.58 0-1.11.15-1.552.412-.363.216-.63.517-.83.856-.09.15-.32.15-.41 0-.202-.339-.469-.64-.831-.856a3.047 3.047 0 00-1.552-.412c-.868 0-1.693.293-2.353.898-.03.032-.06.065-.09.098a3.484 3.484 0 00-.856 2.033v.028c-.01.33.03.65.13.953.09.28.24.54.44.76h13.55c.2-.22.35-.48.44-.76.1-.303.14-.623.13-.953v-.028z"/>
+        </svg>
+        <span class="font-bold text-lg">DockerWeb</span>
+      </a>
+
+      <nav class="hidden lg:flex gap-1" aria-label="Основная навигация">
+        <a href="index.html" class="nav-link">Главная</a>
+        <a href="about.html" class="nav-link">О Docker</a>
+        <a href="installation.html" class="nav-link">Установка</a>
+        <a href="commands.html" class="nav-link">Команды</a>
+        <a href="dockerfile.html" class="nav-link">Dockerfile</a>
+        <a href="compose.html" class="nav-link">Compose</a>
+        <a href="examples.html" class="nav-link">Примеры</a>
+        <a href="blog.html" class="nav-link">Блог</a>
+        <a href="faq.html" class="nav-link">FAQ</a>
+        <a href="contact.html" class="nav-link">Контакты</a>
+      </nav>
+
+      <button class="burger lg:hidden" aria-label="Открыть меню">
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+        <span class="burger-line"></span>
+      </button>
+    </div>
+
+    <nav id="mobile-nav" class="hidden lg:hidden bg-dark-light px-4 pb-4 flex flex-col gap-1" aria-label="Мобильная навигация">
+      <a href="index.html" class="nav-link">Главная</a>
+      <a href="about.html" class="nav-link">О Docker</a>
+      <a href="installation.html" class="nav-link">Установка</a>
+      <a href="commands.html" class="nav-link">Команды</a>
+      <a href="dockerfile.html" class="nav-link">Dockerfile</a>
+      <a href="compose.html" class="nav-link">Compose</a>
+      <a href="examples.html" class="nav-link">Примеры</a>
+      <a href="blog.html" class="nav-link">Блог</a>
+      <a href="faq.html" class="nav-link">FAQ</a>
+      <a href="contact.html" class="nav-link">Контакты</a>
+    </nav>
+  </header>
+
+  <!-- ============ ОСНОВНОЙ КОНТЕНТ + САЙДБАР ============ -->
+  <div class="container-x py-10 grid grid-cols-1 lg:grid-cols-[1fr_320px] gap-8">
+
+    <!-- MAIN -->
+    <main>
+      <nav aria-label="Хлебные крошки" class="text-sm text-gray-500 mb-4">
+        <a href="index.html" class="link">Главная</a> / <span>Установка Docker</span>
+      </nav>
+
+      <h1 class="section-title">Установка Docker</h1>
+      <p class="mb-6">
+        Docker Desktop доступен для Windows, macOS и Linux. Ниже — пошаговая инструкция,
+        которая поможет установить и проверить работу Docker на вашем компьютере.
+      </p>
+
+      <!-- Шаг 1 -->
+      <section class="mb-8">
+        <h2 class="text-xl font-bold mt-6 mb-3">Шаг 1. Скачать установщик</h2>
+        <p class="mb-4">
+          Перейдите на официальный сайт
+          <a href="https://www.docker.com/products/docker-desktop/" class="link" target="_blank" rel="noopener">
+            docker.com
+          </a>
+          и скачайте версию для вашей операционной системы:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li><strong>Windows</strong> — Docker Desktop for Windows (требуется WSL 2 или Hyper-V).</li>
+          <li><strong>macOS</strong> — Docker Desktop for Mac (Intel или Apple Silicon).</li>
+          <li><strong>Linux</strong> — Docker Engine через пакетный менеджер дистрибутива.</li>
+        </ul>
+      </section>
+
+      <!-- Шаг 2 -->
+      <section class="mb-8">
+        <h2 class="text-xl font-bold mt-6 mb-3">Шаг 2. Установить</h2>
+
+        <h3 class="font-semibold mt-4 mb-2">Для Windows и macOS</h3>
+        <p class="mb-4">
+          Запустите скачанный установщик и следуйте инструкциям мастера установки.
+          После завершения установки <strong>перезагрузите компьютер</strong> и запустите
+          Docker Desktop из меню «Пуск» (или из Launchpad).
+        </p>
+
+        <h3 class="font-semibold mt-4 mb-2">Для Linux (Ubuntu / Debian)</h3>
+        <p class="mb-2">Выполните в терминале следующие команды:</p>
+        <pre class="code-block"><code>sudo apt update
+sudo apt install docker.io docker-compose-plugin
+sudo systemctl enable --now docker</code></pre>
+      </section>
+
+      <!-- Шаг 3 -->
+      <section class="mb-8">
+        <h2 class="text-xl font-bold mt-6 mb-3">Шаг 3. Проверить установку</h2>
+        <p class="mb-2">Откройте терминал и выполните:</p>
+        <pre class="code-block"><code>docker --version
+# Ожидаемый вывод: Docker version 26.1.0, build ...
+
+docker run hello-world
+# Ожидаемый вывод: Hello from Docker!</code></pre>
+        <p class="mt-3">
+          Если вы увидели сообщение <em>«Hello from Docker!»</em> — установка прошла успешно.
+        </p>
+      </section>
+
+      <!-- Предупреждение -->
+      <aside class="card bg-yellow-50 border-l-4 border-yellow-400 my-6">
+        <p>
+          <strong>⚠️ Важно для Linux:</strong> чтобы запускать Docker без <code>sudo</code>,
+          добавьте своего пользователя в группу <code>docker</code>:
+        </p>
+        <pre class="code-block mt-3"><code>sudo usermod -aG docker $USER</code></pre>
+        <p class="mt-2 text-sm">После этого выйдите из системы и войдите снова.</p>
+      </aside>
+
+      <!-- Таблица -->
+      <section class="mb-8">
+        <h2 class="text-xl font-bold mt-6 mb-3">Системные требования</h2>
+        <table class="table-styled">
+          <caption class="text-left font-bold mb-2">Минимальные требования Docker Desktop</caption>
+          <thead>
+            <tr>
+              <th scope="col">Компонент</th>
+              <th scope="col">Минимум</th>
+              <th scope="col">Рекомендуется</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ОЗУ</td>
+              <td>4 ГБ</td>
+              <td>8 ГБ и более</td>
+            </tr>
+            <tr>
+              <td>Свободное место на диске</td>
+              <td>10 ГБ</td>
+              <td>50 ГБ SSD</td>
+            </tr>
+            <tr>
+              <td>Процессор</td>
+              <td>2 ядра</td>
+              <td>4 ядра и более</td>
+            </tr>
+            <tr>
+              <td>Операционная система</td>
+              <td>Windows 10 64-bit, macOS 12+, Ubuntu 20.04+</td>
+              <td>Актуальные версии ОС</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Видео -->
+      <section class="mb-8">
+        <h2 class="text-xl font-bold mt-6 mb-3">Видеоинструкция по установке</h2>
+        <div class="aspect-video rounded-lg overflow-hidden shadow-lg">
+          <iframe
+            class="w-full h-full"
+            src="https://vkvideo.ru/video_ext.php?oid=-205214227&id=456239392&hash=543dba95c5105690&hd=4"
+            title="Установка Docker Desktop"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <p class="text-sm text-gray-500 mt-2">
+          VK Video - видео как на главной странице.
+        </p>
+      </section>
+
+      <!-- Навигация между страницами -->
+      <nav class="flex justify-between gap-4 mt-10">
+        <a href="about.html" class="btn-outline">← О Docker</a>
+        <a href="commands.html" class="btn-primary">Основные команды →</a>
+      </nav>
+    </main>
+
+    <!-- ASIDE -->
+    <aside class="space-y-6">
+      <div class="card">
+        <h3 class="font-bold mb-3 text-dark">📌 Содержание страницы</h3>
+        <ul class="space-y-1 text-sm">
+          <li><a href="#" class="link">→ Шаг 1. Скачать</a></li>
+          <li><a href="#" class="link">→ Шаг 2. Установить</a></li>
+          <li><a href="#" class="link">→ Шаг 3. Проверить</a></li>
+          <li><a href="#" class="link">→ Системные требования</a></li>
+          <li><a href="#" class="link">→ Видеоинструкция</a></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 class="font-bold mb-3 text-dark">✉️ Подписка на новости</h3>
+        <form class="subscribe-form">
+          <label for="subscribe-email" class="sr-only">Email</label>
+          <input
+            id="subscribe-email"
+            type="email"
+            required
+            placeholder="your@email.com"
+            class="w-full p-2 border rounded mb-2 focus:outline-none focus:border-primary">
+          <button type="submit" class="btn-primary w-full">Подписаться</button>
+        </form>
+      </div>
+
+      <div class="card bg-gradient-to-br from-primary to-accent text-white">
+        <h3 class="font-bold mb-2">💡 Совет дня</h3>
+        <p class="text-sm opacity-95">
+          Включите в Docker Desktop опцию <em>«Use WSL 2 based engine»</em> — это заметно
+          ускорит работу контейнеров на Windows.
+        </p>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="bg-dark text-white mt-12">
+    <div class="container-x py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <h4 class="font-bold text-lg mb-3">DockerWeb</h4>
+        <p class="text-sm opacity-80">
+          Учебный проект по теме «Использование контейнеров для разработки Web-приложений».
+        </p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Разделы</h4>
+        <ul class="space-y-1 text-sm">
+          <li><a href="about.html" class="hover:text-primary">О Docker</a></li>
+          <li><a href="commands.html" class="hover:text-primary">Команды</a></li>
+          <li><a href="examples.html" class="hover:text-primary">Примеры</a></li>
+          <li><a href="faq.html" class="hover:text-primary">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-3">Контакты</h4>
+        <ul class="space-y-1 text-sm opacity-90">
+          <li>✉️ info@dockerweb.ru</li>
+          <li>📞 +7 (999) 123-45-67</li>
+          <li>🌐 github.com/dockerweb</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 text-center py-4 text-sm opacity-70">
+      © 2026 DockerWeb. Все права защищены.
+    </div>
+  </footer>
+
+</body>
+</html>
